@@ -442,6 +442,13 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user camera
     group camera system inet input
 
+on property:init.svc.wcnss_init=stopped
+    # Insert Bricked-Kernel modules
+    #insmod /system/lib/modules/wlan.ko
+    insmod /system/lib/modules/tun.ko
+    insmod /system/lib/modules/cifs.ko
+    #insmod /system/lib/modules/scsi_wait_scan.ko
+
 service wcnss_init /system/bin/sh /system/etc/init.flo.wifi.sh
     class main
     user system
