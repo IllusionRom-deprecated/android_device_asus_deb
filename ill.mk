@@ -1,13 +1,19 @@
-$(call inherit-product, vendor/illusion/config/common.mk)
-
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1200
 
 PRODUCT_RELEASE_NAME := deb
 
+# Inherit some common ill stuff.
+$(call inherit-product, vendor/illusion/config/common.mk)
+
+# Enhanced NFC
+$(call inherit-product, vendor/illusion/config/nfc_enhanced.mk)
+
+# Inherit device configuration
 $(call inherit-product, device/asus/deb/full_deb.mk)
 
+# GSM radio
 $(call inherit-product, vendor/illusion/config/gsm.mk)
 
 ## Device identifier. This must come after all inclusions
